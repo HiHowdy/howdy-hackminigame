@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-width: 100vw;
+    min-height: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /* background: url('background.png'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.minigame-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.wrap {
+    width: 600px;
+    background: #24293C;
+    border: 8px solid #35406B;
+    padding: 20px;
+    height: 0px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: .5s linear all;
+}
+
+.section-header .fas {
+    font-size: 42px;
+}
+
+.section-header {
+    text-align: center;
+    line-height: 32px;
+}
+
+.timer-bar {
+    background: #1A1D2C;
+    height: 10px;
+    width: 500px;
+    margin-top: 1rem;
+}
+
+.loading-bar {
+    background: #1A1D2C;
+    height: 20px;
+    width: 500px;
+    margin-top: 1rem;
+}
+
+.loading-bar-inner, .timer-bar-inner {
+    width: 45%;
+    height: 100%;
+    background: #35406B;
+    transition: 1s linear width;
+}
+
+.timer-bar-inner {
+    transition: 0s linear width;
+}
+
+.decryption-icons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    font-size: 40px;
+    gap: 35px;
+    /* padding: 1rem; */
+}
+
+.decryption-minigame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.currentMinigameIcon {
+    font-size: 65px;
+}
+
+.currentMinigameInput {
+    display: grid;
+    grid-template-columns: 1fr 30px;
+    height: 40px;
+    width: 250px;
+    align-items: center;
+    background: #1f2336;
+    border-bottom: 2px solid white;
+}
+
+.currentMinigameInput input {
+    height: 40px;
+    width: 250px;
+    align-items: center;
+    background: #1f2336;
+    border-bottom: 2px solid white;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    border-bottom: white 2px solid;
+}
+
+.input-button {
+    opacity: 60%;
+    font-size: 20px;
+}
+
+.input-button:hover {
+    opacity: 100%;
+}
+

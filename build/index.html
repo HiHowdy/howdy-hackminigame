@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css" rel="stylesheet" type="text/css" />
+</head>
+<body id="app">
+
+    <div class="minigame-container" v-if="minigameActive">
+        <div class="wrap">
+            <div class="section-1">
+                <div class="section-header" v-if="stage == 1 || stage == 2 || stage == 4">
+                    <div class="header-icon"><i class="fas fa-user-secret"></i></div>
+                    <div class="header-text">{{minigameLabel}}</div>
+                </div>
+
+                <div class="loading-bar" v-if="stage == 1">
+                    <div class="loading-bar-inner" v-bind:style="{width: progressPercent + '%'}"></div>
+                </div>
+
+                <div class="decryption-icons" v-if="stage == 2">
+                    <div class="decryption-icon" v-for="(item, index) in playableIcons">
+                        <div v-html="item.icon" v-bind:style="{color: iconColors[index]}"></div>
+                    </div>
+                </div>
+
+                <div class="decryption-minigame" v-if="stage == 3 && !hideFrame">
+                    <div class="currentMinigameIcon" 
+                    v-html="playableIcons[currentIconToVerify].icon"
+                    v-bind:style="{color: playableIcons[currentIconToVerify].selectedColor}"></div>
+                    <div class="text" v-if="!displayingGuess">Enter the correct color</div>
+                    <div class="currentMinigameInput" v-if="!displayingGuess">
+                        <input type="text" 
+                        v-model="colorInput" 
+                        v-on:keyup.enter="guessColor()"
+                        id="color-guess-input">
+                    </div>
+                    <div class="timer-bar" v-if="timerDisplayed">
+                        <div class="timer-bar-inner" v-bind:style="{width: timerPercent + '%'}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="main.js"></script>
+
+    <script>
+        window.post = (url, data) => {
+            var request = new XMLHttpRequest();
+            request.open('POST', url, true);
+            request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+            request.send(data);
+        }
+    </script>
+</body>
+</html>
