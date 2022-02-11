@@ -264,9 +264,9 @@ const app = Vue.createApp({
 
 const root = app.mount('#app');
 
-setTimeout(() => {
-    root.BEGIN_MINIGAME({icons: 5, time: 5000});
-}, 500);
+// setTimeout(() => {
+//     root.BEGIN_MINIGAME({icons: 5, time: 5000});
+// }, 500);
 
 document.addEventListener('keydown', function (e) {
     if (e.which == 9) {
